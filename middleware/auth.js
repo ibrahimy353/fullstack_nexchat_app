@@ -5,7 +5,8 @@ import { Jwt } from "jsonwebtoken";
 export const verifyToken = async (req, res, next) =>{ 
     try{
         let token = req.header("Authorization");
-//if the token entered doesnt exist then the system will give back output Accedd denaid
+//if the token entered doesnt exist then the system will give back output Access denaid
+//this is done through grabbing token from the front end to back end
         if(!token ){
             return res.status(403).send("Access Denaid");
         }
