@@ -1,4 +1,4 @@
-import { Jwt } from "jsonwebtoken";
+import jwt  from "jsonwebtoken";
 // the middleware here verifies the api end points in which it 
 //allow the authorized user to be able to do things in which the non loged in user cant access or do
 
