@@ -9,8 +9,12 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
-import userRoutes from "./routes/user.js"
+import userRoutes from "./routes/user.js";
+import postRoutes from "./routes/post.js";
 import{register} from "./controllers/auth.js";
+import {createPost} from "./controllers/posts.js";
+import { verify } from "crypto";
+import { verifyToken } from "./middleware/auth.js";
 
 
 /* Configuration */
@@ -41,11 +45,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /*ROUTERS WITH FILES */
-app.post("/auth/register", upload.single("picture"), register);
+app.post("/auth/register", upload.single("picture"), register);// the line here grabs the image property from the frontend user where the image is actually located through the http call
+app.post("/posts", verifyToken, upload.single("picture"),createPost);// this line then ensures that the system grabs it
 
 /*ROUTES*/
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
+app.use("/posts", postRoutes);
 
 /*MONGOOSE SETUP */
 const PORT = process.env.PORT|| 6001;
