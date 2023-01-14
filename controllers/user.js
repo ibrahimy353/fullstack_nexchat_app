@@ -5,16 +5,18 @@ import User from "../models/User";
 export const getUser = async (req, res) =>{
     try{
         const { id } = req.params;
-        const user = await User.findById(id);
+        const user = await User.findById(id);//here the db grabs the user id
         res.status(200).json(user);
 
     }  catch (err){
         res.status(404).json({error: err.message});
     }
-}
+};
 
-export const getUserFriends =  async(req, res)// this grabs all the user friends from the id u specify
-{
+export const getUserFriends =  async(req, res) =>{
+
+// this grabs all the user friends from the id u specify
+try {
     const { id } = req.params;
     const user = await User.findById(id);
 
@@ -23,7 +25,13 @@ export const getUserFriends =  async(req, res)// this grabs all the user friends
     );
     const formattedFriends = friends.map(
         ({_id, firstName, lastName, occupation, location, picturePath}) => {
-        return { _id, firstName, lastName, occupation, location, picturePath}
+        return { _id, firstName, lastName, occupation, location, picturePath};
     }
-    )
+    );
+    res. status(404).json(formattedFriends);
+} catch(err){
+    res.status(404).json({message: err.message})
+}
 };
+ 
+
