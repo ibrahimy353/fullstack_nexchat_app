@@ -1,7 +1,6 @@
-import { json } from "body-parser";
+
 import bcrypt from  "bcrypt";
-import { Jwt } from "jsonwebtoken";
-import user from "../models/User.js";
+import jwt  from "jsonwebtoken";
 import User from "../models/User.js";
 
 /*REGISTER USER */
