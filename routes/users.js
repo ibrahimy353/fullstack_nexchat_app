@@ -8,7 +8,7 @@ import { verifyToken } from "../middleware/auth.js";
 
 const router = express.Router();
 
-/*READ FROM cRud*/
+/*READ from cRud*/
 router.get(":/id", verifyToken, getUser);// if the user is sending a particular id (syntax), the system can grab the id from the database to give a specif output
 router.get(":/id/friends", verifyToken, getUserFriends);
 

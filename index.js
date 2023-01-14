@@ -13,6 +13,7 @@ import userRoutes from "./routes/user.js";
 import postRoutes from "./routes/post.js";
 import{register} from "./controllers/auth.js";
 import {createPost} from "./controllers/posts.js";
+import User from "./models/User.js";
 import { verify } from "crypto";
 import { verifyToken } from "./middleware/auth.js";
 
