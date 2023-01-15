@@ -17,7 +17,8 @@ import { verify } from "crypto";
 import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 import Post from "./models/Post.js";
-import {users, posts} from "./data/index.js";
+import {users } from "./data/index.js"
+import { posts } from "./data/index.js";
 /* Configuration */
 
 const __filename = fileURLToPath(import.meta.url);
@@ -66,7 +67,7 @@ mongoose
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
       
  /*ADD THE DATA ONE TIME*/
-  //  User.insertMany(users);
+  user.insertMany(users);
     //Post.insertMany(posts);
 })
 
