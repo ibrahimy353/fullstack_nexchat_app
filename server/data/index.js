@@ -20,7 +20,7 @@ export const users = [
     password: "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
     picturePath: "p11.jpeg",
     friends: [],
-    location: "San Fran, CA",
+    location: "Nairobi, CA",
     occupation: "Software Engineer",
     viewedProfile: 14561,
     impressions: 888822,
